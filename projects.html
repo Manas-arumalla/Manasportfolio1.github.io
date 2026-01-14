@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Manas Reddy</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <!-- Lottie -->
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
+</head>
+
+<body>
+
+  <!-- SVG Filter for Gooey Effect -->
+  <svg style="position: absolute; width: 0; height: 0;">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Background Canvas (Particle Network) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Nav -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link"><i class="fa-solid fa-arrow-left"></i> Home</a></li>
+      <li><a href="#" class="nav-link active">Projects Gallery</a></li>
+      <div class="nav-blob"></div> <!-- Moving Active Indicator -->
+    </ul>
+  </nav>
+
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <section class="section-padding" style="padding-top: 150px;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 60px;">
+        <h1 class="hero-title reveal-text">Projects <span class="gradient-text">Gallery</span></h1>
+        <p class="reveal-text" style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+          A collection of my robotics and engineering projects, blending innovation, problem-solving, and technical
+          skills.
+          Click card for details.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+
+        <!-- 1. PharmaBot -->
+        <div class="bento-item large reveal-text" data-modal="modal-pharma">
+          <img src="assets/Pharma.png" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">Raspberry Pi • CoppeliaSim • Python</div>
+            <h3 class="bento-title">PharmaBot: Autonomous Medicine Delivery</h3>
+          </div>
+        </div>
+
+        <!-- 2. Sony SSUP -->
+        <div class="bento-item small reveal-text" data-modal="modal-sony">
+          <img src="assets/Sony.jpg" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">Sony Spresense • IoT</div>
+            <h3 class="bento-title">Smart Cow Health Monitoring</h3>
+          </div>
+        </div>
+
+        <!-- 3. Inverted Pendulum -->
+        <div class="bento-item small reveal-text" data-modal="modal-pend">
+          <img src="assets/Invpend.png" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">MATLAB • MuJoCo</div>
+            <h3 class="bento-title">Inverted Pendulum Dynamics</h3>
+          </div>
+        </div>
+
+        <!-- 4. Quadcopter -->
+        <div class="bento-item large reveal-text" data-modal="modal-quad">
+          <img src="assets/dronesim.jpg" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">MATLAB • Controls • LQR</div>
+            <h3 class="bento-title">Quadcopter Control Simulation</h3>
+          </div>
+        </div>
+
+        <!-- 5. Self Balancing -->
+        <div class="bento-item reveal-text" style="grid-column: span 6;" data-modal="modal-self">
+          <img src="assets/self.jpg" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">Arduino • PID • LQR</div>
+            <h3 class="bento-title">Self-Balancing Bot</h3>
+          </div>
+        </div>
+
+        <!-- 6. River Cleaning -->
+        <div class="bento-item reveal-text" style="grid-column: span 6;" data-modal="modal-river">
+          <img src="assets/rivercleaning.png" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">ROS2 • Gazebo • Jetson</div>
+            <h3 class="bento-title">River Cleaning Robot</h3>
+          </div>
+        </div>
+
+        <!-- 7. Hand Tracking -->
+        <div class="bento-item reveal-text small" data-modal="modal-hand">
+          <img src="assets/handtrackmodel.png" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">OpenCV • MuJoCo</div>
+            <h3 class="bento-title">Robotic Wrist Control</h3>
+          </div>
+        </div>
+
+        <!-- 8. Racing Drone -->
+        <div class="bento-item reveal-text small" data-modal="modal-drone">
+          <img src="assets/Drone.png" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">BetaFlight • Hardware</div>
+            <h3 class="bento-title">Racing Drone</h3>
+          </div>
+        </div>
+
+        <!-- 9. Robo Soccer -->
+        <div class="bento-item reveal-text small" data-modal="modal-soccer">
+          <img src="assets/robosoccer.png" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">Arduino • Sensors</div>
+            <h3 class="bento-title">Opto-Electric Robo Soccer</h3>
+          </div>
+        </div>
+
+        <!-- 10. AR/VR Chair -->
+        <div class="bento-item reveal-text small" style="grid-column: span 12;" data-modal="modal-chair">
+          <img src="assets/ARVR.jpg" class="bento-img">
+          <div class="bento-content">
+            <div class="bento-tags">Fusion 360 • CAD</div>
+            <h3 class="bento-title">AR/VR Motion Simulator Chair</h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- PharmaBot Modal -->
+  <div id="modal-pharma" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>PharmaBot – Autonomous Medicine Delivery</h2>
+      <p class="modal-subtitle">E-Yantra Competition (IIT Bombay)</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/Pharmabot.png" alt="PharmaBot">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/Rl8GzILtZo4" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/wk6wSKj-q1c" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="modal-text">
+          <p>The PharmaBot project was developed as part of the E-Yantra Robotics Competition organized by IIT Bombay.
+            The objective was to design a robot capable of autonomously delivering medicines from a pharmacy to
+            designated houses using efficient path planning and intelligent control.</p>
+          <ul class="modal-list">
+            <li><strong>Path Planning:</strong> Implemented Dijkstra’s algorithm to compute shortest routes.</li>
+            <li><strong>Vision:</strong> Used OpenCV for detecting road markers suitable for navigation.</li>
+            <li><strong>Controller:</strong> Raspberry Pi managed sensors and motors.</li>
+          </ul>
+          <a href="https://github.com/Manas-arumalla/eyrc22_Pharma_Bot.git" target="_blank" class="btn-cyber">
+            <span>GitHub</span> <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sony Modal -->
+  <div id="modal-sony" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>Sony SSUP: COWKIN</h2>
+      <p class="modal-subtitle">Smart Cow Health Monitoring System</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/Sony.jpg" alt="Sony Project">
+        </div>
+        <div class="modal-text">
+          <p>As part of the Sony Spresense University Program (SSUP), this project encompassed two innovative
+            developments: a Smart Livestock Monitoring System and an Omni Directional Multi-Morphing Robot. The
+            monitoring system utilized the Sony Spresense board to track vital parameters such as body temperature,
+            activity levels, and geolocation of cows.</p>
+          <p>The Multi-Morphing Robot showcased advanced robotics with shape-shifting capabilities, omni-directional
+            movement, and animal-like leg joints for enhanced adaptability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inverted Pendulum Modal -->
+  <div id="modal-pend" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>Two-Wheeled Inverted Pendulum</h2>
+      <p class="modal-subtitle">Advanced Control Strategies</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/Poleplacement.png">
+          <video controls>
+            <source src="assets/Invertedpend.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-text">
+          <p>This project focused on deriving the dynamics of a two-wheeled inverted pendulum and applying advanced
+            control techniques to stabilize it. Dynamics were modeled in MATLAB and tested in MuJoCo.</p>
+          <ul class="modal-list">
+            <li><strong>LQR & MPC:</strong> Optimal trade-off between control effort and stability.</li>
+            <li><strong>Sliding Mode Control:</strong> Robustness against disturbances.</li>
+            <li><strong>Genetic Algorithms:</strong> Used for optimizing controller gains.</li>
+          </ul>
+          <a href="https://github.com/Manas-arumalla/Control-strategies-for-two-wheeled-inverted-pendulum.git"
+            target="_blank" class="btn-cyber">
+            <span>View Code</span> <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quadcopter Modal -->
+  <div id="modal-quad" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>Quadcopter Control Simulation</h2>
+      <p class="modal-subtitle">Trajectory Tracking & Dynamics</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/dronesim.jpg">
+          <video controls>
+            <source src="assets/quadcoptercontrol.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-text">
+          <p>Focus on simulating a quadcopter control system capable of accurately following predefined trajectories
+            such as waypoints, straight-line paths, and helixes.</p>
+          <ul class="modal-list">
+            <li><strong>Controllers:</strong> PID, LQR, Backstepping, MPC.</li>
+            <li><strong>Optimization:</strong> Genetic Algorithm tuning.</li>
+          </ul>
+          <a href="https://github.com/Manas-arumalla/Quadcopter_Control_Simulation.git" target="_blank"
+            class="btn-cyber">
+            <span>View Code</span> <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Self Balancing Modal -->
+  <div id="modal-self" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>Self-Balancing Robot</h2>
+      <p class="modal-subtitle">Hardware Implementation</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/self.jpg">
+          <video controls>
+            <source src="assets/selfbalancingbot.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-text">
+          <p>Designed and built a self-balancing robot inspired by inverted pendulum dynamics. The system maintains
+            balance on uneven terrains using PID and LQR.</p>
+          <ul class="modal-list">
+            <li><strong>Hardware:</strong> Arduino, IMU sensors, DC motors.</li>
+            <li><strong>Control:</strong> Real-time PID loop implementation.</li>
+          </ul>
+          <a href="https://github.com/Manas-arumalla/Steady-Stride_Self-balancing-robot.git" target="_blank"
+            class="btn-cyber">
+            <span>View Code</span> <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- River Modal -->
+  <div id="modal-river" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>River Cleaning Robot</h2>
+      <p class="modal-subtitle">Anvi Robotics</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/rivercleaning.png">
+        </div>
+        <div class="modal-text">
+          <p>Contributed to the design and simulation of a river-cleaning robot aimed at addressing water pollution. The
+            system autonomously detects and collects floating waste from water bodies.</p>
+          <ul class="modal-list">
+            <li><strong>Sim:</strong> ROS2 & Gazebo integration.</li>
+            <li><strong>AI:</strong> Object detection for waste identification.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hand Modal -->
+  <div id="modal-hand" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>Robotic Wrist Control</h2>
+      <p class="modal-subtitle">Computer Vision & Simulation</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/handtrackmodel.png">
+          <video controls>
+            <source src="assets/Handtrackrun.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-text">
+          <p>Integrated computer vision with robotics simulation to enable real-time control of a robotic wrist. Using
+            OpenCV, hand movements were tracked and translated into control commands in MuJoCo.</p>
+          <a href="https://github.com/Manas-arumalla/Hand-Tracking-Control.git" target="_blank" class="btn-cyber">
+            <span>View Code</span> <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Racing Drone Modal -->
+  <div id="modal-drone" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>FPV Racing Drone</h2>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/Drone.png">
+        </div>
+        <div class="modal-text">
+          <p>Assembling and fine-tuning a high-performance racing drone. Gained expertise in UAV hardware integration,
+            flight calibration (Betaflight), and performance optimization.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Robo Soccer Modal -->
+  <div id="modal-soccer" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>Opto-Electric Robo Soccer</h2>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <video controls>
+            <source src="assets/robosoccer.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="modal-text">
+          <p>Autonomous soccer-playing robot guided by light signals. Used LDR sensors to detect illumination patterns
+            and translate them into movement commands.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chair Modal -->
+  <div id="modal-chair" class="modal-overlay">
+    <div class="modal-content">
+      <button class="close-modal">&times;</button>
+      <h2>AR/VR Motion Simulator Chair</h2>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <div style="margin-bottom: 20px; text-align: center;">
+            <h3 style="margin-bottom: 10px; color: #fff;">Manas Reddy Arumalla</h3>
+            <p style="color: #888; margin-bottom: 5px;">Hyderabad, Telangana - India</p>
+            <p style="color: #888;">Email: <span style="color: var(--primary);">manasreddyarumalla@gmail.com</span> |
+              Phone: <span style="color: var(--primary);">+91 9700171171</span></p>
+          </div>
+          <div
+            style="text-align:center; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+            <p>&copy; 2024 Manas Reddy Arumalla. All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+      <!-- JS Libs -->
+      <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+      <script src="main.js"></script>
+      <script>
+        // Modal Logic
+        const items = document.querySelectorAll('.bento-item');
+        const overlays = document.querySelectorAll('.modal-overlay');
+        const closes = document.querySelectorAll('.close-modal');
+
+        items.forEach(item => {
+          item.addEventListener('click', () => {
+            const modalId = item.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+              modal.classList.add('open');
+              document.body.style.overflow = 'hidden'; // Lock Scroll
+            }
+          });
+        });
+
+        const closeModal = (overlay) => {
+          overlay.classList.remove('open');
+          document.body.style.overflow = ''; // Unlock Scroll
+        };
+
+        closes.forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            closeModal(e.target.closest('.modal-overlay'));
+          });
+        });
+
+        window.addEventListener('click', (e) => {
+          if (e.target.classList.contains('modal-overlay')) {
+            closeModal(e.target);
+          }
+        });
+      </script>
+</body>
+
+</html>

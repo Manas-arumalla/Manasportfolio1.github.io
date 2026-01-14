@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manas Reddy Arumalla | Robotics Engineer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Lottie -->
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
+
+  <!-- Animation Libs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+  <!-- SVG Filter for Gooey Effect -->
+  <svg style="position: absolute; width: 0; height: 0;">
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- Background Canvas (Particle Network) -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#certifications" class="nav-link">Achievements</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <div class="nav-blob"></div> <!-- Moving Active Indicator -->
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+
+    <!-- SIDE-BY-SIDE LAYOUT -->
+    <div class="hero-container">
+
+      <!-- Left: Text -->
+      <div class="hero-text">
+        <div class="hero-drone-anim reveal-text" style="margin-bottom: -60px; position: relative; z-index: 2;">
+          <!-- Small Looping Drone -->
+          <dotlottie-wc src="https://lottie.host/14031381-b579-4c68-b46d-86e7072b194e/J4U6NM248K.json"
+            style="width: 220px; height: 220px;" autoplay loop speed="1">
+          </dotlottie-wc>
+        </div>
+
+        <h1 class="hero-title reveal-text">
+          <span class="gradient-text">Crafting</span><br>
+          Ideas Into Robots
+        </h1>
+
+        <p class="hero-subtitle reveal-text">
+          I’m <strong>Manas Reddy Arumalla</strong>.<br>
+          Robotics & Automation Engineer | Building intelligent systems that bridge the gap between imagination and
+          reality.
+        </p>
+
+        <div class="reveal-text">
+          <a href="#projects" class="btn-glow">Explore Work <i class="fa-solid fa-arrow-right"
+              style="margin-left: 8px;"></i></a>
+        </div>
+      </div>
+
+      <!-- Right: Animation -->
+      <div class="hero-visual reveal-text">
+        <dotlottie-wc src="https://lottie.host/29c4df36-c1a8-4f43-a3e9-e30d9c7a263d/zwQa93b9Pg.json"
+          style="width: 100%; max-width: 700px;" autoplay loop speed="1">
+        </dotlottie-wc>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator REMOVED -->
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-padding">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image reveal-text">
+          <div class="profile-card-container">
+            <div class="profile-card-shine"></div>
+            <img src="assets/Profile.jpg" alt="Manas Reddy" class="profile-card-img">
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="gradient-text" style="font-weight: 600; letter-spacing: 1px;">ABOUT ME</p>
+          <h2 class="reveal-text" style="font-size: 2.5rem; margin: 10px 0 20px;">Manas Reddy Arumalla</h2>
+          <p class="reveal-text">
+            Robotics and Automation Engineer passionate about building intelligent systems that combine creativity with
+            technology, driven by a strong curiosity for innovation and problem-solving.
+          </p>
+          <br>
+          <p class="reveal-text">
+            With hands-on experience in robotics projects, internships, and research, I am eager to collaborate with
+            organizations where I can apply my skills in robotics and automation to contribute and grow.
+          </p>
+          <br>
+          <div class="reveal-text" style="display: flex; gap: 20px;">
+            <a href="assets/Resume.pdf" target="_blank" class="btn-glow">Download Resume</a>
+            <a href="https://www.linkedin.com/in/manas-reddy" target="_blank"
+              style="display:flex; align-items:center; gap:8px;">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section (Redesigned) -->
+  <section id="skills" class="section-padding" style="position: relative; overflow: hidden;">
+    <div class="container" style="max-width: 1000px; text-align: center;">
+      <h2 class="reveal-text" style="margin-bottom: 50px;">Technical <span class="gradient-text">Skills</span></h2>
+
+      <div class="skills-grid reveal-text">
+        <div class="skill-badge"><i class="fa-solid fa-robot"></i> Robotics</div>
+        <div class="skill-badge"><i class="fa-brands fa-python"></i> Python</div>
+        <div class="skill-badge"><i class="fa-solid fa-file-code"></i> C/C++</div> <!-- Better code icon -->
+        <div class="skill-badge"><i class="fa-solid fa-circle-nodes"></i> ROS/ROS2</div> <!-- Nodes for ROS! -->
+        <div class="skill-badge"><i class="fa-solid fa-wave-square"></i> MATLAB</div> <!-- Math/Signals -->
+        <div class="skill-badge"><i class="fa-solid fa-compass-drafting"></i> SolidWorks/CAD</div>
+        <div class="skill-badge"><i class="fa-solid fa-helicopter"></i> Drone Control</div> <!-- Rotorcraft -->
+        <div class="skill-badge"><i class="fa-solid fa-eye"></i> Computer Vision</div>
+        <div class="skill-badge"><i class="fa-solid fa-brain"></i> Machine Learning</div>
+        <div class="skill-badge"><i class="fa-solid fa-industry"></i> Industrial Automation</div>
+        <div class="skill-badge"><i class="fa-solid fa-wifi"></i> IoT Systems</div>
+        <div class="skill-badge"><i class="fa-solid fa-cubes"></i> Gazebo/CoppeliaSim</div> <!-- 3D cubes for sim -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Sneak Peek -->
+  <section id="projects" class="section-padding">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:end; margin-bottom: 40px;">
+        <h2 class="reveal-text">My <span class="gradient-text">Projects</span></h2>
+        <a href="projects.html" class="btn-glow reveal-text">View All Projects <i
+            class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <!-- Bento Grid Snippet -->
+      <div class="bento-grid">
+        <!-- PharmaBot -->
+        <div class="bento-item large reveal-text" onclick="window.location.href='projects.html'">
+          <img src="assets/Pharma.png" class="bento-img" alt="PharmaBot">
+          <div class="bento-content">
+            <div class="bento-tags">Raspberry Pi • CoppeliaSim • Python</div>
+            <h3 class="bento-title">PharmaBot</h3>
+          </div>
+        </div>
+
+        <!-- Quadcopter -->
+        <div class="bento-item small reveal-text" onclick="window.location.href='projects.html'">
+          <img src="assets/dronesim.jpg" class="bento-img" alt="Quadcopter Control">
+          <div class="bento-content">
+            <div class="bento-tags">MATLAB • Controls</div>
+            <h3 class="bento-title">Quadcopter Control</h3>
+          </div>
+        </div>
+
+        <!-- Self Balancing -->
+        <div class="bento-item span-6 reveal-text" onclick="window.location.href='projects.html'">
+          <img src="assets/self.jpg" class="bento-img" alt="Self Balancing">
+          <div class="bento-content">
+            <div class="bento-tags">Arduino • PID • LQR</div>
+            <h3 class="bento-title">Self-Balancing Bot</h3>
+          </div>
+        </div>
+
+        <!-- Sony SSUP -->
+        <div class="bento-item span-6 reveal-text" onclick="window.location.href='projects.html'">
+          <img src="assets/Sony.jpg" class="bento-img" alt="Sony SSUP">
+          <div class="bento-content">
+            <div class="bento-tags">Sony Spresense • IoT</div>
+            <h3 class="bento-title">Smart Cow Monitor</h3>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px;">
+        <p class="reveal-text" style="color: #888;">Discover more projects like River Cleaning Robot, Robo Soccer, and
+          Hand Tracking in the full archive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section-padding">
+    <div class="container" style="max-width: 900px;">
+      <h2 class="reveal-text" style="text-align:center; margin-bottom: 60px;">Professional <span
+          class="gradient-text">Experience</span></h2>
+
+      <div class="experience-list">
+        <!-- Item 1 -->
+        <div class="exp-item glass-panel reveal-text">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Robotics Intern</h3>
+              <div class="exp-company">Sony SSUP, Amrita Vishwa Vidyapeetham</div>
+            </div>
+            <div class="exp-date">Oct 2023 – Dec 2024</div>
+          </div>
+          <p>
+            <strong>COWKIN: Smart Cow Health Monitoring System</strong><br>
+            A Sony Spresense-based system designed for real-time monitoring of cow health. It tracks vital parameters
+            like temperature, activity, and location, ensuring early detection of health issues and improving livestock
+            management.
+          </p>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="exp-item glass-panel reveal-text">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Robotics Intern</h3>
+              <div class="exp-company">Anvi Robotics, Hyderabad</div>
+            </div>
+            <div class="exp-date">Jun 2024 – Jul 2024</div>
+          </div>
+          <p>
+            Developed a River cleaning robot, an innovative robotic system designed to clean water bodies by efficiently
+            collecting floating waste. It integrates advanced navigation and control mechanisms to operate autonomously,
+            contributing to environmental conservation efforts.
+          </p>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="exp-item glass-panel reveal-text">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Design Intern</h3>
+              <div class="exp-company">7s Technologies, Hyderabad</div>
+            </div>
+            <div class="exp-date">Mar 2024 – Apr 2024</div>
+          </div>
+          <p>
+            Developed a smart chair prototype integrating AR/VR technologies to enhance user interaction and immersive
+            experiences. Focused on ergonomic design, sensor integration, and seamless VR environment synchronization.
+          </p>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="exp-item glass-panel reveal-text">
+          <div class="exp-header">
+            <div>
+              <h3 class="exp-role">Technical Content Curator</h3>
+              <div class="exp-company">My Equation, Remote</div>
+            </div>
+            <div class="exp-date">Dec 2023 – Mar 2024</div>
+          </div>
+          <p>
+            Curated content for AI/ML projects. Created and managed technical content for AI/ML topics, gaining hands-on
+            experience in explaining complex concepts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="section-padding">
+    <div class="container">
+      <h2 class="reveal-text" style="text-align:center; margin-bottom: 50px;">Achievements & <span
+          class="gradient-text">Certifications</span></h2>
+
+      <div class="cert-grid">
+        <!-- Cert 1 -->
+        <div class="cert-card glass-panel reveal-text">
+          <h3>E-Yantra Certificate of Merit</h3>
+          <h4 style="color: var(--primary);">IIT Bombay – National Robotics Competition</h4>
+          <span class="cert-year">2022 – 2023</span>
+          <p>Qualified for the semifinals (Task 6) in the E-Yantra competition, gaining proficiency in Python, Raspberry
+            Pi, image processing, CoppeliaSim, and control systems.</p>
+        </div>
+
+        <!-- Cert 2 -->
+        <div class="cert-card glass-panel reveal-text">
+          <h3>ROS2 Workshop</h3>
+          <h4 style="color: var(--primary);">Amrita Vishwa Vidyapeetham</h4>
+          <span class="cert-year">2024</span>
+          <p>Delivered sessions on foundational ROS2 concepts and hands-on implementations to guide juniors in robotics
+            development.</p>
+        </div>
+
+        <!-- Cert 3 -->
+        <div class="cert-card glass-panel reveal-text">
+          <h3>Robo AI - Certificate of Appreciation</h3>
+          <h4 style="color: var(--primary);">My Equation</h4>
+          <span class="cert-year">2023</span>
+          <p>Awarded for successfully completing the Industrial Training Program, with recognition for outstanding
+            performance in the major project “Building a Mobile Unmanned Robot".</p>
+        </div>
+
+        <!-- Cert 4 -->
+        <div class="cert-card glass-panel reveal-text">
+          <h3>National Service Scheme Camp</h3>
+          <h4 style="color: var(--primary);">NSS</h4>
+          <span class="cert-year">2023</span>
+          <p>Participated in the NSS Special Camp contributing to community service, social welfare activities, and
+            rural development initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="contact-title gradient-text reveal-text">Get In Touch</h2>
+      <p class="reveal-text" style="max-width: 600px; margin: 0 auto 40px; color: #a0a0a0;">
+        Let’s collaborate and innovate together. Open to connecting with passionate learners, researchers, and
+        professionals in robotics and automation.
+      </p>
+
+      <div class="contact-grid reveal-text" style="justify-content: center; margin-bottom: 30px;">
+        <!-- Clean, Interactive Social Buttons -->
+        <!-- GitHub -->
+        <a href="https://github.com/manasreddy123" target="_blank" class="social-btn-small" title="GitHub">
+          <i class="fa-brands fa-github"></i>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com/in/manas-reddy-arumalla" target="_blank" class="social-btn-small"
+          title="LinkedIn">
+          <i class="fa-brands fa-linkedin"></i>
+        </a>
+        <!-- Mail -->
+        <a href="mailto:manasreddyarumalla@gmail.com" class="social-btn-small" title="Email">
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+        <!-- Instagram (if present, else remove) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="margin-bottom: 20px; text-align: center;">
+        <h3 style="margin-bottom: 10px; color: #fff;">Manas Reddy Arumalla</h3>
+        <p style="color: #888; margin-bottom: 5px;">Hyderabad, Telangana - India</p>
+        <p style="color: #888;">Email: <span style="color: var(--primary);">manasreddyarumalla@gmail.com</span> | Phone:
+          <span style="color: var(--primary);">+91 9700171171</span>
+        </p>
+      </div>
+      <div
+        style="text-align:center; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+        <p>&copy; 2025 Manas Reddy Arumalla. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
