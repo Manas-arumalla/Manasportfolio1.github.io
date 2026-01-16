@@ -386,4 +386,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 9. Mobile Menu Logic
+  const mobileBtn = document.querySelector('.mobile-menu-btn');
+  const mobileOverlay = document.querySelector('.mobile-nav-overlay');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  if (mobileBtn && mobileOverlay) {
+    mobileBtn.addEventListener('click', () => {
+      mobileBtn.classList.toggle('active');
+      mobileOverlay.classList.toggle('active');
+
+      // Prevent scrolling when menu is open
+      if (mobileOverlay.classList.contains('active')) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileBtn.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
 });

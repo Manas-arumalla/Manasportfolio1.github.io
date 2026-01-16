@@ -37,7 +37,22 @@
       <li><a href="#" class="nav-link active">Projects Gallery</a></li>
       <div class="nav-blob"></div> <!-- Moving Active Indicator -->
     </ul>
+
+    <!-- Mobile Hamburger -->
+    <button class="mobile-menu-btn" aria-label="Toggle Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="#" class="mobile-nav-link">Projects Gallery</a></li>
+    </ul>
+  </div>
 
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
@@ -380,61 +395,73 @@
   <div id="modal-chair" class="modal-overlay">
     <div class="modal-content">
       <button class="close-modal">&times;</button>
-      <h2>AR/VR Motion Simulator Chair</h2>
-
-      <!-- Footer -->
-      <footer class="footer">
-        <div class="container">
-          <div style="margin-bottom: 20px; text-align: center;">
-            <h3 style="margin-bottom: 10px; color: #fff;">Manas Reddy Arumalla</h3>
-            <p style="color: #888; margin-bottom: 5px;">Hyderabad, Telangana - India</p>
-            <p style="color: #888;">Email: <span style="color: var(--primary);">manasreddyarumalla@gmail.com</span> |
-              Phone: <span style="color: var(--primary);">+91 9700171171</span></p>
-          </div>
-          <div
-            style="text-align:center; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-            <p>&copy; 2024 Manas Reddy Arumalla. All Rights Reserved.</p>
-          </div>
+      <p class="modal-subtitle">Fusion 360 • CAD</p>
+      <div class="modal-body">
+        <div class="modal-media-grid">
+          <img src="assets/ARVR.jpg" alt="AR/VR Chair">
         </div>
-      </footer>
+        <div class="modal-text">
+          <p>Designed a motion simulator chair for immersive AR/VR experiences. The system integrates with VR headsets
+            to
+            synchronize physical movement with virtual environments, enhancing realism.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <!-- JS Libs -->
-      <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
-      <script src="main.js"></script>
-      <script>
-        // Modal Logic
-        const items = document.querySelectorAll('.bento-item');
-        const overlays = document.querySelectorAll('.modal-overlay');
-        const closes = document.querySelectorAll('.close-modal');
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div style="margin-bottom: 20px; text-align: center;">
+        <h3 style="margin-bottom: 10px; color: #fff;">Manas Reddy Arumalla</h3>
+        <p style="color: #888; margin-bottom: 5px;">Hyderabad, Telangana - India</p>
+        <p style="color: #888;">Email: <span style="color: var(--primary);">manasreddyarumalla@gmail.com</span> |
+          Phone: <span style="color: var(--primary);">+91 9700171171</span></p>
+      </div>
+      <div
+        style="text-align:center; color: #666; font-size: 0.9rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+        <p>&copy; 2024 Manas Reddy Arumalla. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
 
-        items.forEach(item => {
-          item.addEventListener('click', () => {
-            const modalId = item.getAttribute('data-modal');
-            const modal = document.getElementById(modalId);
-            if (modal) {
-              modal.classList.add('open');
-              document.body.style.overflow = 'hidden'; // Lock Scroll
-            }
-          });
-        });
+  <!-- JS Libs -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+  <script src="main.js"></script>
+  <script>
+    // Modal Logic
+    const items = document.querySelectorAll('.bento-item');
+    const overlays = document.querySelectorAll('.modal-overlay');
+    const closes = document.querySelectorAll('.close-modal');
 
-        const closeModal = (overlay) => {
-          overlay.classList.remove('open');
-          document.body.style.overflow = ''; // Unlock Scroll
-        };
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const modalId = item.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.classList.add('open');
+          document.body.style.overflow = 'hidden'; // Lock Scroll
+        }
+      });
+    });
 
-        closes.forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            closeModal(e.target.closest('.modal-overlay'));
-          });
-        });
+    const closeModal = (overlay) => {
+      overlay.classList.remove('open');
+      document.body.style.overflow = ''; // Unlock Scroll
+    };
 
-        window.addEventListener('click', (e) => {
-          if (e.target.classList.contains('modal-overlay')) {
-            closeModal(e.target);
-          }
-        });
-      </script>
+    closes.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        closeModal(e.target.closest('.modal-overlay'));
+      });
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal-overlay')) {
+        closeModal(e.target);
+      }
+    });
+  </script>
 </body>
 
 </html>
