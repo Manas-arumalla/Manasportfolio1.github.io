@@ -1117,6 +1117,23 @@ body.hovering .cursor {
     margin-bottom: 20px;
   }
 
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 1;
+    /* Force Text/Drone to Top */
+    margin-top: -40px;
+  }
+
+  .hero-visual {
+    order: 2;
+    /* Force Visual to Bottom */
+    margin-bottom: 20px;
+  }
+
   .hero-drone-anim {
     display: flex;
     justify-content: center;

@@ -80,13 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Stagger for grids
     if (document.querySelector('.bento-grid')) {
       gsap.from(".bento-item", {
-        y: 50,
+        y: 30, // Reduced travel distance
         opacity: 0,
-        duration: 0.8,
-        stagger: 0.1,
+        duration: 0.5, // Faster
+        stagger: 0.05, // Much faster stagger
         scrollTrigger: {
           trigger: ".bento-grid",
-          start: "top 80%"
+          start: "top 85%" // Triggers earlier
         }
       });
     }
